@@ -72,9 +72,9 @@ done
 cat ${README_TEMPLATE}/${1}/Footer.md >> ${README_TEMP}
 
 if [[ ${1} = "en" ]];then
-  mv ${README_TEMP} ./README.md
+  mv ${README_TEMP} ../README.md
 else
-  mv ${README_TEMP} ./README_${1^^}.md
+  mv ${README_TEMP} ../README_${1^^}.md
 fi
 
 echo "Generate README.md Finished."
