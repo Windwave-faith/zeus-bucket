@@ -13,14 +13,14 @@ README_TEMPLATE="${PWD}/template"
 COMMIT_MSG="README: Update something"
 
 function manifest_check(){
-  git log --pretty=format:%h -2
+  # git log --pretty=format:%h -2
   COMMIT_HASH=`git log --pretty=format:%h -2`
   BEFORE=`echo ${COMMIT_HASH} | cut -d " " -f 1` >> /dev/null
   AFTER=`echo ${COMMIT_HASH} |  cut -d " " -f 2` >> /dev/null
   
   git diff $BEFORE $AFTER --relative=bucket --exit-code --name-only
   #git diff HEAD --relative=bucket --exit-code --name-only
-  return $?
+  echo $?
 }
 
 
