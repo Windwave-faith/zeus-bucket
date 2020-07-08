@@ -12,10 +12,12 @@ README_TEMPLATE="${PWD}/template"
 COMMIT_MSG="README: Update something"
 
 function main(){
- git diff HEAD --relative=${LOCAL_BUCKET}
+ git diff HEAD --relative=${LOCAL_BUCKET} --exit-code --quiet
  if [[ $? == 0 ]];then
     echo "No Update"
     return 0;
+ else 
+    echo "Update README.md"
  fi
  Generate "en"
  Generate "ja"
