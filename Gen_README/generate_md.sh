@@ -2,12 +2,14 @@
 
 set -uxe
 
+
 REMOTE_GIT="https://github.com/Kazanami/zeus-bucket"
 REMOTE_RAW="https://raw.githubusercontent.com/Kazanami/zeus-bucket/master/bucket"
 REMOTE_BUCKET="${REMOTE_GIT}/blob/master/bucket"
 LOCAL_WORK=`dirname ${PWD}`
 LOCAL_BUCKET="${LOCAL_WORK}/bucket"
 README_TEMPLATE="${PWD}/template"
+COMMIT_MSG="README: Update something"
 
 function main(){
  git diff HEAD --relative=${LOCAL_BUCKET}
@@ -17,6 +19,10 @@ function main(){
  fi
  Generate "en"
  Generate "ja"
+ cd ../
+ git add .
+ git commit -m "${COMMIT_MSG}"
+ git push
 }
 
 function Encode_URL() {
