@@ -20,7 +20,7 @@ function manifest_check(){
   
   git diff $BEFORE $AFTER --relative=bucket --exit-code --name-only
   #git diff HEAD --relative=bucket --exit-code --name-only
-  echo $?
+  return $?
 }
 
 
