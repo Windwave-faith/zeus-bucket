@@ -2,19 +2,22 @@
 
 set -uxe
 
-
-function main(){
- Generate "en"
- Generate "ja"
-
-}
-
 REMOTE_GIT="https://github.com/Kazanami/zeus-bucket"
 REMOTE_RAW="https://raw.githubusercontent.com/Kazanami/zeus-bucket/master/bucket"
 REMOTE_BUCKET="${REMOTE_GIT}/blob/master/bucket"
 LOCAL_WORK=`dirname ${PWD}`
 LOCAL_BUCKET="${LOCAL_WORK}/bucket"
 README_TEMPLATE="${PWD}/template"
+
+function main(){
+ git diff HEAD^ --relative=${LOCAL_BUCKET}
+ if [[ $? == 0 ]];then
+    echo "No Update"
+    return 0;
+ fi
+ Generate "en"
+ Generate "ja"
+}
 
 function Encode_URL() {
   echo "${1}" | nkf -WwMQ | tr = % | tr -d "\n" | sed -e "s/%2E/\./g" \
