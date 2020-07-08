@@ -2,7 +2,8 @@
 
 set -uxe
 
-
+git config --global user.name "Kazanami"
+git config --global user.email ${ GITHUB_TOKEN }
 REMOTE_GIT="https://github.com/Kazanami/zeus-bucket"
 REMOTE_RAW="https://raw.githubusercontent.com/Kazanami/zeus-bucket/master/bucket"
 REMOTE_BUCKET="${REMOTE_GIT}/blob/master/bucket"
