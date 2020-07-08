@@ -16,6 +16,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SKIP_UPDATED: '1'
     - name: Updating README.md
+      env:
+        GITH_EMAIL: ${{ secrets.DUMMY_ADDRESS }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         sudo apt install jq nkf -y
         cd ./Gen_README
