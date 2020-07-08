@@ -11,9 +11,16 @@ LOCAL_BUCKET="${LOCAL_WORK}/bucket"
 README_TEMPLATE="${PWD}/template"
 COMMIT_MSG="README: Update something"
 
+function manifest_check(){
+  COMMIT_HASH=`git log --pretty=format:"%h" -2`
+  git diff $COMMIT_HASH[0] $COMMIT_HASH[1] --relative=bucket --exit-code --name-only
+}
+
+
 function main(){
- git diff HEAD --relative=bucket --exit-code --name-only
- if [ $? = 0 ];then
+# git diff HEAD --relative=bucket --exit-code --name-only
+ MAN_CHECK=$(manifest_check)
+ if [ $MAN_CHECK == 0 ];then
     echo "No Update"
     return 0;
  else 
