@@ -10,7 +10,7 @@ LOCAL_BUCKET="${LOCAL_WORK}/bucket"
 README_TEMPLATE="${PWD}/template"
 
 function main(){
- git diff HEAD^ --relative=${LOCAL_BUCKET}
+ git diff HEAD --relative=${LOCAL_BUCKET}
  if [[ $? == 0 ]];then
     echo "No Update"
     return 0;
