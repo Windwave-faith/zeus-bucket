@@ -12,8 +12,8 @@ README_TEMPLATE="${PWD}/template"
 COMMIT_MSG="README: Update something"
 
 function main(){
- git diff HEAD --relative=bucket --exit-code --quiet
- if [[ $? == 0 ]];then
+ git diff HEAD --relative=bucket --exit-code --name-only
+ if [ $? = 0 ];then
     echo "No Update"
     return 0;
  else 
