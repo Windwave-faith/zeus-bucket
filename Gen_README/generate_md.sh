@@ -18,7 +18,7 @@ function manifest_check(){
   #AFTER=`echo ${COMMIT_HASH} | tail -n 1`
   
   #git diff $BEFORE $AFTER --relative=bucket --exit-code --name-only
-  git diff HEAD^ --relative=bucket --exit-code --name-only
+  git diff HEAD --relative=bucket --exit-code --name-only
   echo $?
 }
 
