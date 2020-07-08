@@ -15,3 +15,9 @@ jobs:
         GITH_EMAIL: ${{ secrets.DUMMY_ADDRESS }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SKIP_UPDATED: '1'
+    - name: Updating README.md
+      run: |
+        sudo apt install jq nkf -y
+        cd ./Gen_README
+        bash ./generate_md.sh
+        ls -1
